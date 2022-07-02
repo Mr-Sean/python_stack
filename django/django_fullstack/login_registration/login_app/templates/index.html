@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="row">
+            <div>
+            <!-- <div class="col-5"> -->
+                <h1>Register</h1>
+
+                {% if messages %}
+                <ul>
+                    {% for message in messages %}
+                    <li>{{ message }}</li>
+                    {% endfor %}                
+                </ul>
+                {% endif %}
+
+                <!-- Reg info goes here -->
+                <form action="/register" method="POST">
+                    {% csrf_token %}
+                    <!-- (.form-group>label+input)*5 -->
+                    <!-- <button type="button" class="btn btn-primary">Submit</button> -->
+                    <div>
+                        <label for="first_name">First Name</label>
+                        <input name="first_name" type="text">
+                    </div>
+                    <div>
+                        <label for="last_name">Last Name</label>
+                        <input name="last_name" type="text">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input name="email" type="text">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input name="password" type="password">
+                    </div>
+                    <div>
+                        <label for="confirm_password">Confirm Password</label>
+                        <input name="confirm_password" type="password">
+                    </div>
+                    <div><button type="submit">Register</button></div>
+                </form>
+
+            </div>
+
+            <div>
+                <h1>Login</h1>
+                <!-- Login info goes here -->
+
+                <form action="/login" method="POST">
+                    {% csrf_token %}                    
+                    <div>
+                        <label for="email">Email</label>
+                        <input name="email" type="text">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input name="password" type="password">
+                    </div>
+
+                    <div><button type="submit">Login</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

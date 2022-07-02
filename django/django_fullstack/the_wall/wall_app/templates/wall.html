@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+</head>
+
+<body>
+    <div>
+        <h1>Success! Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
+        {% if request.session.user_id %}
+        <p>Successfully registered (or logged in)!</p>
+        {% endif %}
+        <h2>POST A NEW MESSAGE!</h2>
+        <form action="/post_message" method="POST">
+            {% csrf_token %}
+            <div>
+                <input type="text" name="message">
+                <button type="submit">Post Message On Wall</button>
+            </div>  
+        </form>
+    </div>
+        <a href="/logout">Logout</a>
+    <div>
+        <!-- Use For Loop to print out all wall Messages that exist -->
+        {% for wall_message in wall_messages %}
+            <h2>"{{ wall_message.message }}"</h2>
+            <p>Posted by {{ wall_message.poster.first_name }} {{ wall_message.poster.last_name }}</p>
+            <p>Created at {{ wall_message.created_at }}</p>
+
+            {% if wall_message.poster.id == request.session.user_id %}
+                <form action="/delete_message/{{ wall_message.id }}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+            {% endif %}
+
+            <!-- For Loop to give All Comments for a Message -->
+            {% for comment in wall_message.message_comments.all %}
+                <h3>"{{ comment.comment }}"</h3>
+                <p>Comment by {{ comment.poster.first_name }} {{ comment.poster.last_name }}</p>
+                <p>Created at {{ comment.created_at }}</p>
+
+                {% if comment.poster.id == request.session.user_id %}
+                    <form action="/delete_comment/{{ comment.id }}" method="POST">
+                        {% csrf_token %}
+                        <button type="submit">Delete</button>
+                    </form>
+                {% endif %}
+            {% endfor %}
+
+            <!-- Additional For Loop to print out comments with Comment Button -->
+            <form action="/post_comment/{{ wall_message.id }}" method="POST">
+                {% csrf_token %}
+                <div>
+                    <input type="text" name="comment">
+                    <button type="submit">Post Comment to Message</button>
+                </div>  
+            </form>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+In [2]: from dojo_ninjas_app.models import Dojo, Ninja
+
+In [4]: dojo1 = Dojo.objects.create(name = "Dojo 1", city = "Las Vegas", state = "NV")
+
+In [5]: dojo1
+Out[5]: <Dojo: Dojo 1>
+
+In [6]: dojo2 = Dojo.objects.create(name = "Dojo 2", city = "Denver", state = "CO")
+
+In [7]: dojo2
+Out[7]: <Dojo: Dojo 2>
+
+In [8]: dojo3 = Dojo.objects.create(name = "Dojo 3", city = "Portland", state = "OR")
+
+In [9]: dojo3
+Out[9]: <Dojo: Dojo 3>
+
+In [10]: Dojo.objects.all()
+Out[10]: <QuerySet [<Dojo: Dojo 1>, <Dojo: Dojo 2>, <Dojo: Dojo 3>]>
+
+In [11]: dojo1.delete()
+Out[11]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [12]: Dojo.objects.all()
+Out[12]: <QuerySet [<Dojo: Dojo 2>, <Dojo: Dojo 3>]>
+
+In [13]: dojo2.delete()
+Out[13]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [14]: dojo3.delete()
+Out[14]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [15]: Dojo.objects.all()
+Out[15]: <QuerySet []>
+
+In [16]: dojo4 = Dojo.objects.create(name = "Dojo 3", city = "Burbank", state = "CA")
+
+In [17]: dojo4.delete()
+Out[17]: (1, {'dojo_ninjas_app.Ninja': 0, 'dojo_ninjas_app.Dojo': 1})
+
+In [18]: dojo4 = Dojo.objects.create(name = "Dojo 4", city = "Burbank", state = "CA")
+
+In [19]: dojo4
+Out[19]: <Dojo: Dojo 4>
+
+In [20]: dojo5 = Dojo.objects.create(name = "Dojo 5", city = "Dallas", state = "TX")
+
+In [21]: dojo5
+Out[21]: <Dojo: Dojo 5>
+
+In [22]: dojo6 = Dojo.objects.create(name = "Dojo 6", city = "New York", state = "NY")
+
+In [23]: dojo6
+Out[23]: <Dojo: Dojo 6>
+
+In [24]: ninja1 = Ninja.objects.create(first_name = "Jackie", last_name = "Chan", dojo = dojo4)
+
+In [25]: Ninja.objects.all()
+Out[25]: <QuerySet [<Ninja: Jackie Chan>]>
+
+In [26]: ninja2 = Ninja.objects.create(first_name = "Johnny", last_name = "Cage", dojo = dojo4)
+
+In [27]: ninja3 = Ninja.objects.create(first_name = "Bruce", last_name = "Lee", dojo = dojo4)
+
+In [28]: Ninja.objects.all()
+Out[28]: <QuerySet [<Ninja: Jackie Chan>, <Ninja: Johnny Cage>, <Ninja: Bruce Lee>]>
+
+In [29]: ninja4 = Ninja.objects.create(first_name = "Donnie", last_name = "Yen", dojo = dojo5)
+
+In [30]: ninja5 = Ninja.objects.create(first_name = "Billy", last_name = "Blanks", dojo = dojo5)
+
+In [31]: ninja6 = Ninja.objects.create(first_name = "Don", last_name = "WIlson", dojo = dojo5)
+
+In [32]: Ninja.objects.all()
+Out[32]: <QuerySet [<Ninja: Jackie Chan>, <Ninja: Johnny Cage>, <Ninja: Bruce Lee>, <Ninja: Donnie Yen>, <Ninja: Billy Blanks>, <Ninja: Don WIlson>]>
+
+In [33]: ninja7 = Ninja.objects.create(first_name = "Chuck", last_name = "Norris", dojo = dojo6)
+
+In [34]: ninja8 = Ninja.objects.create(first_name = "Cynthia", last_name = "Rothrock", dojo = dojo6)
+
+In [35]: ninja9 = Ninja.objects.create(first_name = "Gina", last_name = "Carrano", dojo = dojo6)
+
+In [36]: Ninja.objects.all()
+Out[36]: <QuerySet [<Ninja: Jackie Chan>, <Ninja: Johnny Cage>, <Ninja: Bruce Lee>, <Ninja: Donnie Yen>, <Ninja: Billy Blanks>, <Ninja: Don WIlson>, <Ninja: Chuck Norris>, <Ninja: Cynthia Rothrock>, <Ninja: Gina Carrano>]>
+
+In [39]: Dojo.objects.first().ninjas.all()
+Out[39]: <QuerySet [<Ninja: Jackie Chan>, <Ninja: Johnny Cage>, <Ninja: Bruce Lee>]>
+
+In [40]: Dojo.objects.last().ninjas.all()
+Out[40]: <QuerySet [<Ninja: Chuck Norris>, <Ninja: Cynthia Rothrock>, <Ninja: Gina Carrano>]>
+
+In [42]: Ninja.objects.last().dojo
+Out[42]: <Dojo: Dojo 6>
+
+(p3VE) C:\Users\MyRig\Desktop\CodingDojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0002_dojo_description.py
+    - Add field description to dojo
+
+(p3VE) C:\Users\MyRig\Desktop\CodingDojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0002_dojo_description... OK
+
+(p3VE) C:\Users\MyRig\Desktop\CodingDojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py makemigrations
+Migrations for 'dojo_ninjas_app':
+  dojo_ninjas_app\migrations\0003_auto_20210514_2004.py
+    - Alter field description on dojo
+
+(p3VE) C:\Users\MyRig\Desktop\CodingDojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas_app, sessions
+Running migrations:
+  Applying dojo_ninjas_app.0003_auto_20210514_2004... OK
+
+(p3VE) C:\Users\MyRig\Desktop\CodingDojo\python_stack\django\django_orm\dojo_ninjas_proj>python manage.py shell
+Python 3.9.2 (tags/v3.9.2:1a79785, Feb 19 2021, 13:44:55) [MSC v.1928 64 bit (AMD64)]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.23.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: from dojo_ninjas_app.models import Dojo, Ninja
+
+In [2]: dojo7 = Dojo.objects.create(name = "Dojo 7", city = "Seattle", state = "WA")
+
+In [3]: Dojo.objects.all()
+Out[3]: <QuerySet [<Dojo: Dojo 4>, <Dojo: Dojo 5>, <Dojo: Dojo 6>, <Dojo: Dojo 7>]>

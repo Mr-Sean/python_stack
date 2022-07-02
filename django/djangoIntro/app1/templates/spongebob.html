@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Its Krab Time, baby!</h1>
+    {% for item in menu_item %}
+        {% if item == "chum" %}
+            <p>Maybe you should go to the chum bucket</p>
+        {% else %}
+            <p>{{item}}</p>
+        {% endif %}
+    {% endfor %}
+    <a href="helloWorld">Hello World</a>
+    <form action="/submission" method="POST">
+        {% csrf_token %}                {# Stops hackers. Always use on forms w/ POST request. #}
+        Name<input type="text" name="user_name">`
+        What are you ordering 
+        <select name="menu_item">
+            <option value="Krabby Patty">Krabby Patty</option>
+            <option value="Chum">Chum</option>
+            <option value="Pizza">Pizza</option>
+            <option value="Kelp Fries">Kelp Fries</option>
+        </select>
+        <input type="submit" value="Submit Order">
+    </form>
+</body>
+</html>

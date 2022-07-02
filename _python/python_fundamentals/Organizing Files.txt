@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.19042.804]
+(c) 2020 Microsoft Corporation. All rights reserved.
+
+C:\Users\MyRig>cd desktop
+
+C:\Users\MyRig\Desktop>cd codingdojo
+
+C:\Users\MyRig\Desktop\CodingDojo>md python_stack
+
+C:\Users\MyRig\Desktop\CodingDojo>cd python_stack
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>md my_environments
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>md _python
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>md django
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>cd _python
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\_python>md python_fundamentals
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\_python>md OOP
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\_python>cd ..
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>cd django
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\django>md django_fundamentals
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\django>md django_orm
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\django>md django_fullstack
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack\django>cd ..
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>tree
+Folder PATH listing
+Volume serial number is 78CB-7841
+C:.
+????django
+?   ????django_fullstack
+?   ????django_fundamentals
+?   ????django_orm
+????my_environments
+????_python
+    ????OOP
+    ????python_fundamentals
+
+C:\Users\MyRig\Desktop\CodingDojo\python_stack>

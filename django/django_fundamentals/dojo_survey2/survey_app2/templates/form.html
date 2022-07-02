@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey Revisited</title>
+</head>
+<body>
+    <h1>Dojo Survey:</h1>
+
+    <form action="/process" method="POST">
+        {% csrf_token %}
+        <p>Name:<input type="text" name="user_name"></p>
+
+        <p><label for="location">Location:</label>
+        <select name="location">
+            <option value="San Jose">San Jose</option>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="Long Beach">Long Beach</option>
+        </select></p>    
+        
+        <p><label for="language">Language:</label>
+        <select name="language">
+            <option value="Python">Python</option>
+            <option value="JavaScipt">JavaScipt</option>
+            <option value="Mern">Mern</option>
+        </select></p>
+        
+        <p><button type="submit">Submit</button></p>
+
+        </form>
+    </form>
+</body>
+</html>

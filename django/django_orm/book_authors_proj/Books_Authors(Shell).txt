@@ -1,0 +1,92 @@
+In [1]: from books_authors_app.models import Book, Author
+
+AttributeError: type object 'Book' has no attribute 'object'
+
+In [3]: c_sharp = Book.objects.create(title = "C Sharp")
+
+In [5]: Book.objects.all()
+Out[5]: <QuerySet [<Book: Book object (1)>]>
+
+In [6]: java = Book.objects.create(title = "Java")
+
+In [7]: python = Book.objects.create(title = "Python")
+
+In [8]: php = Book.objects.create(title = "PHP")
+
+In [9]: ruby = Book.objects.create(title = "Ruby")
+
+In [10]: jane_austin = Author.objects.create(first_name = "Jane", last_name = "Austen")
+
+In [11]: emily_dickinson = Author.objects.create(first_name = "Emily", last_name = "Dickinson")
+
+In [12]: fyodor_dostoevsky = Author.objects.create(first_name = "Fyodor", last_name = "Dostoevsky")
+
+In [13]: william_shakespeare = Author.objects.create(first_name = "William", last_name = "Shakespeare")
+
+In [14]: lau_tzu = Author.objects.create(first_name = "Lau", last_name = "Tzu")
+
+In [15]: c_sharp.title = "C#"
+
+In [16]: c_sharp.save()
+
+In [17]: william_shakespeare.first_name = "Bill"
+
+In [18]: william_shakespeare.save()
+
+In [20]: Book.objects.all()
+Out[20]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>, <Book: Book object (5)>]>
+
+In [21]: Author.objects.all()
+Out[21]: <QuerySet [<Author: Author object (1)>, <Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>, <Author: Author object (5)>]>
+
+In [23]: c_sharp.Authors.add(jane_austin)
+
+In [24]: java.Authors.add(jane_austin)
+
+In [25]: c_sharp.Authors.add(emily_dickinson)
+
+In [26]: java.Authors.add(emily_dickinson)
+
+In [27]: python.Authors.add(emily_dickinson)
+
+In [28]: c_sharp.Authors.add(fyodor_dostoevsky)
+
+In [29]: java.Authors.add(fyodor_dostoevsky)
+
+In [30]: python.Authors.add(fyodor_dostoevsky)
+
+In [31]: php.Authors.add(fyodor_dostoevsky)
+
+In [32]: c_sharp.Authors.add(william_shakespeare)
+
+In [33]: java.Authors.add(william_shakespeare)
+
+In [34]: python.Authors.add(william_shakespeare)
+
+In [35]: php.Authors.add(william_shakespeare)
+
+In [36]: ruby.Authors.add(william_shakespeare)
+
+In [37]: python.Authors.all()
+Out[37]: <QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+In [38]: python.Authors.remove(jane_austin)
+
+In [39]: python.Authors.all()
+Out[39]: <QuerySet [<Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>]>
+
+In [41]: python.Authors.remove(emily_dickinson)
+
+In [42]: python.Authors.all()
+Out[42]: <QuerySet [<Author: Author object (3)>, <Author: Author object (4)>]>
+
+In [43]: java.Authors.add(lau_tzu)
+
+In [45]: java.Authors.all()
+Out[45]: <QuerySet [<Author: Author object (1)>, <Author: Author object (2)>, <Author: Author object (3)>, <Author: Author object (4)>, <Author: Author object (5)>]>
+
+In [46]: fyodor_dostoevsky.books.all()
+Out[46]: <QuerySet [<Book: Book object (1)>, <Book: Book object (2)>, <Book: Book object (3)>, <Book: Book object (4)>]>
+
+In [47]: ruby.Authors.all()
+Out[47]: <QuerySet [<Author: Author object (4)>]>

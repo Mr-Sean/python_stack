@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Shows</title>
+</head>
+
+<body>
+    <div>
+        <h1>Howdy, {{ user_id.first_name }}!!!</h1>
+        <a href="/logout"><button>LogOut</button></a>
+    </div>
+    <div>
+        <h1>All TV Shows</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Network</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for show in shows %}
+            <tr>
+                <td>{{ show.id }}</td>
+                <td>{{ show.title }}</td>
+                <td>{{ show.network }}</td>
+                <td>{{ show.release_date|date:"SHORT_DATE_FORMAT" }}</td>
+                <td>
+                    <a href="/success/{{ show.id }}">Show</a>
+                    <a href="/success/{{ show.id }}/edit">Edit</a>
+                    <a href="/success/{{ show.id }}/delete">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <p>Posted by, {{ user_id.first_name }} {{ user_id.last_name }}!!!</p>
+    <a href="/success/new">Add a New Show</a>
+    </div>
+</body>
+</html>

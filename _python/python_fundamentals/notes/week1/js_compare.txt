@@ -1,0 +1,89 @@
+//PROBLEM 1
+function return_a_variable(){
+	var strAndNum = "Day" + 1;
+				var myVariable = 10;
+	return myVariable;
+}
+						console.log(return_a_variable());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+						
+
+
+
+
+
+
+
+
+
+
+
+
+
+//PROBLEM 2
+function ifStatement(){
+	var myVariable = 50;
+	var bool = false;
+	if (myVariable == 99999 && true){
+		myVariable--;
+		console.log("To infinity");
+	}
+	else if (myVariable == 50){
+		myVariable++;
+		console.log("And beyond");
+	}
+	else{
+		console.log("YOU. ARE. A. TOY!");
+	}
+	return myVariable;
+}
+console.log(ifStatement());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// PROBLEM 3
+function forLoops(arr){
+	arr.pop();
+	arr.push(6);
+	for(var i = 0; i < arr.length; i++){
+		console.log(arr[i]);
+	}
+	for(var i = 0; i < arr.length; i++){
+		console.log(arr[i]);
+	}
+}
+forLoop([3,7,2,9]);

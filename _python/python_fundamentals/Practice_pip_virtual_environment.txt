@@ -1,0 +1,11 @@
+pip install Django==1.11.9 - Installs Django in my virtual enviroment
+pip list - Lists all installed programs in your virtual environment
+deactivate - Ends your current virtual enviroment
+pip3 list - Less installed programs are shown outside the virtual enviroment
+call myEnvironments/py3Env/Scripts/activate - Re-actiavates my virtual enviroment
+pip install Django==1.11.9 - It states that "Requirement Already Satistfied" x 4
+pip freeze - "pip" and "pytz" are not included in the list like they are in the "pip list" command
+cd ~/Desktop - "cd .." x 3 to return to desktop
+pip freeze > requirements.txt - nothing changed in CMD prompt, but "dir" confirms a text file was created on my desktop with the same list of programs listed by the "pip freeze" command, but now in a .txt file.
+pip uninstall Django - Uninstalls Django
+pip show Django - Error Message: "WARNING: Package(s) not found: Django"
